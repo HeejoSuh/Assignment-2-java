@@ -63,6 +63,7 @@ public class RockPaperScissors{
      //-------------------------------
     //get computer input
     // Get a random entry from the HashMap.
+	//Random rand = new Random();
      Object[] availableInputs = play.keySet().toArray();
      Object randomKey = availableInputs[new Random().nextInt(availableInputs.length)];
      
