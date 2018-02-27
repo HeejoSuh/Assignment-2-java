@@ -52,42 +52,39 @@ public class RockPaperScissors{
     		//check if available input---------
     		if (play.containsKey(input)){
     			userInput = input; 
+    			//-------------------------------
+    		    //get computer input
+    		    // Get a random entry from the HashMap.
+    			//Random rand = new Random();
+    		     Object[] availableInputs = play.keySet().toArray();
+    		     Object randomKey = availableInputs[new Random().nextInt(availableInputs.length)];
+    		     
+    		     compInput= randomKey.toString();
+    		     
+    		     System.out.println("Computer: " + compInput);
+    		     
+    		     
+    		     //----------
+    		     //calculate win
+    		     if (userInput == compInput) {
+    		    	 //tie
+    		    	 result= "It's a tie!";
+    		     }else if (play.get(userInput) == compInput) {
+    		    	 //lose
+    		    	 result= "You lost!";
+    		     }else {
+    		    	 //win
+    		    	 result= "You won!";
+    		     }
+    		     
+    		     System.out.println(result);
     			break;
     		}else{
         		//Not in the dictionary
         		System.out.println("ERROR: Try again with Rock, Scissors, or Paper.\n");
         	}	
     	}//closing for while
-    	
-
-     //-------------------------------
-    //get computer input
-    // Get a random entry from the HashMap.
-	//Random rand = new Random();
-     Object[] availableInputs = play.keySet().toArray();
-     Object randomKey = availableInputs[new Random().nextInt(availableInputs.length)];
-     
-     compInput= randomKey.toString();
-     
-     System.out.println("Computer: " + compInput);
-     
-     
-     //----------
-     //calculate win
-     if (userInput == compInput) {
-    	 //tie
-    	 result= "It's a tie!";
-     }else if (play.get(userInput) == compInput) {
-    	 //lose
-    	 result= "You lost!";
-     }else {
-    	 //win
-    	 result= "You won!";
-     }
-     
-     System.out.println(result);
           			
     
     }//closing for public main
 }//closing for public class RockPaperScissors
-
