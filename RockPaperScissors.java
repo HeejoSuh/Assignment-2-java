@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 //****************************************************************************
+//****************************************************************************
 public class RockPaperScissors{
 
     public static void main(String[] args) {
@@ -27,7 +28,7 @@ public class RockPaperScissors{
     	
     	//set variables to a random default
     	
-    	String input, result, userInput, compInput;
+    	String input, result, userInput = "", compInput;
         
         
        //create a dictionary to refer to
@@ -40,11 +41,12 @@ public class RockPaperScissors{
        play.put("Scissors", "Rock"); //Rock beats Scissors
        play.put("Paper", "Scissors"); //Scissors beats Paper
   
+       System.out.print("\n\n");
     	//-----------
         //get valid input
-    	while (true) {
+    	while (userInput == "") {
     		//keep asking for input
-    		System.out.println("Rock, Scissors, Paper?");
+    		System.out.print("Rock, Scissors, Paper?\nUser: ");
 		
     		//Get input as a string value-----
     		input = scanner.nextLine();
@@ -59,14 +61,17 @@ public class RockPaperScissors{
     		     Object[] availableInputs = play.keySet().toArray();
     		     Object randomKey = availableInputs[new Random().nextInt(availableInputs.length)];
     		     
+    		     //compInput= randomKey.toString();
     		     compInput= randomKey.toString();
     		     
     		     System.out.println("Computer: " + compInput);
     		     
-    		     
     		     //----------
     		     //calculate win
-    		     if (userInput == compInput) {
+    		     
+    		     //**************CANT use String==String 
+    		     //new String("test") == new String("test") // --> false 
+    		     if (userInput.equals(compInput)) {
     		    	 //tie
     		    	 result= "It's a tie!";
     		     }else if (play.get(userInput) == compInput) {
@@ -78,7 +83,7 @@ public class RockPaperScissors{
     		     }
     		     
     		     System.out.println(result);
-    			break;
+    			//break;
     		}else{
         		//Not in the dictionary
         		System.out.println("ERROR: Try again with Rock, Scissors, or Paper.\n");
